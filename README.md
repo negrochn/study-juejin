@@ -4,4 +4,5 @@
 
 **小册列表**
 
-1. 《 JavaScript 设计模式核⼼原理与应⽤实践》
+1. [《 JavaScript 设计模式核⼼原理与应⽤实践》](https://github.com/negrochn/study-juejin/tree/master/js-design-pattern)
+

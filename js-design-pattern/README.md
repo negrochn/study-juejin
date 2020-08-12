@@ -28,6 +28,7 @@ SOLID 设计原则
 
 1. [工厂模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
 2. [抽象工厂模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
+3. [单例模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)
 
 
 

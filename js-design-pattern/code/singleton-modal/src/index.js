@@ -1,139 +1,66 @@
-export default class HttpUtils {
-  // get 方法
-  static get(url) {
-    return new Promise((resolve, reject) => {
-      // 调用 fetch
-      fetch(url).then(response => response.json()).then(result => {
-        resolve(result)
-      }).catch(error => {
-        reject(error)
-      })
-    })
-  }
-
-  // post 方法
-  static post(url) {
-    return new Promise((resolve, reject) => {
-      // 调用 fetch
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          Accpet: 'application/json',
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        // 将 object 类型的数据格式化为合法的 body 参数
-        body: this.changeData(data)
-      }).then(response => response.json()).then(result => {
-        resolve(result)
-      }).catch(error => {
-        reject(error)
-      })
-    })
-  }
-
-  // body 请求提的格式化方法
-  static changeData(obj) {
-    let prop, str = ''
-    let i = 0
-    for (prop in obj) {
-      if (!prop) {
-        return
-      }
-      if (i == 0) {
-        str += prop + '=' + obj[prop]
-      } else {
-        str += '&' + prop + '=' + obj[prop]
-      }
-      i++
+// 模态框创建逻辑，复用单例模式
+const Modal = (function() {
+  let modal = null
+  return function() {
+    if (!modal) {
+      modal = document.createElement('div')
+      modal.innerHTML = '您还未登录！'
+      modal.id = 'modalId'
+      modal.style.display = 'none'
+      document.body.appendChild(modal)
     }
-    return str
+    return modal
+  }
+})()
+
+// 定义打开按钮
+class OpenButton {
+  // 点击后展示弹框（旧逻辑）
+  onClick() {
+    const modal = new Modal()
+    modal.style.display = 'block'
   }
 }
 
-// 定义目标 url 地址
-const url = 'xxx'
-// 定义 POST 入参
-const params = {
-  // ...
-}
-// 发起 POST 请求
-const postResponse = await HttpUtils.post(url, params) || {}
-
-// 发起 GET 请求
-const getResponse = await HttpUtils.get(url) || {}
-
-// 旧代码中的 Ajax 方式
-function Ajax(type, url, data, success, failed) {
-  // 创建 Ajax 对象
-  var xhr = null
-  if (window.XMLHttpRequest) {
-    xhr = new XMLHttpRequest()
-  } else {
-    xhr = new ActiveXObject('Microsoft.XMLHTTP')
+// 定义按钮对应的装饰器
+class Decorator {
+  // 将按钮实例传入
+  constructor(openButton) {
+    this.openButton = openButton
   }
-
-  // ...
-
-  var type = type.toUpperCase()
-
-  // 识别请求类型
-  if (type == 'GET') {
-    if (data) {
-      xhr.open('GET', url + '?' + data, true) // 如果有数据就拼接
-    }
-    // 发送 get 请求
-    xhr.send()
-  } else if (type == 'POST') {
-    xhr.open('POST', url, true)
-    // 如果需要向 html 表单那样处理 POST 数据，使用 setRequestHeader 来添加 http 头
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-    // 发送 POST 请求
-    xhr.send(data)
+  onClick() {
+    this.openButton.onClick()
+    // 装饰了一层新逻辑
+    this.changeButtonStatus()
   }
-
-  // 处理返回函数
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-      if (xhr.status == 200) {
-        success(xhr.responseText)
-      } else {
-        if (failed) {
-          failed(xhr.status)
-        }
-      }
-    }
+  changeButtonStatus() {
+    this.changeButtonText()
+    this.disableButton()
+  }
+  changeButtonText() {
+    const btn = document.getElementById('btn-open')
+    btn.innerHTML = '快去登录'
+  }
+  disableButton() {
+    const btn = document.getElementById('btn-open')
+    btn.setAttribute('disabled', true)
   }
 }
 
-// // 发送 get 请求
-// Ajax('get', 'xxx', null, function(data) {
-//   // 成功的回调逻辑
-// }, function(error) {
-//   // 失败的回调逻辑
-// })
+const openButton = new OpenButton()
+const decorator = new Decorator(openButton)
 
-// Ajax 适配器函数，入参和旧接口保持一致
-async function AjaxAdapter(type, url, data, success, failed) {
-  const type = type.toUpperCase()
-  let result
-  try {
-    // 实际的请求全部由新接口发起
-    if (type === 'GET') {
-      result = await HttpUtils.get(url) || {}
-    } else if (type === 'POST') {
-      result = await HttpUtils.post(url, data) || {}
-    }
-    // 假设请求成功对应的状态码是 1
-    result.statusCode === 1 && success ? success(result) : failed(result.statusCode)
-  } catch (error) {
-    // 捕捉网络错误
-    if (failed) {
-      failed(error.statusCode)
-    }
+// 点击打开模态框
+document.getElementById('btn-open').addEventListener('click', function() {
+  // openButton.onClick()
+  // 分别验证两个 onClick ，验证装饰器是否生效
+  decorator.onClick()
+})
+
+// 点击关闭模态框
+document.getElementById('btn-close').addEventListener('click', function() {
+  const modal = document.getElementById('modalId')
+  if (modal) {
+    modal.style.display = 'none'
   }
-}
-
-// 用适配器适配旧的 Ajax 方法
-async function Ajax(type, url, data, success, failed) {
-  await AjaxAdapter(type, url, data, success, failed)
-}
+})

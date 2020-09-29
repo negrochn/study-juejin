@@ -31,7 +31,7 @@
 **创建型**
 
 1. [工厂方法模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E5%88%9B%E5%BB%BA%E5%9E%8B/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F.md)
-2. [抽象工厂模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
+2. [抽象工厂模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E5%88%9B%E5%BB%BA%E5%9E%8B/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
 3. [单例模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F.md)
 
 **结构型**

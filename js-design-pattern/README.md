@@ -43,3 +43,5 @@
 
 **行为型**
 
+1. [策略模式](https://github.com/negrochn/study-juejin/blob/master/js-design-pattern/doc/%E8%A1%8C%E4%B8%BA%E5%9E%8B/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
+

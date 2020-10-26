@@ -24,3 +24,4 @@ Vue.js 最精髓的，正是它的组件与组件化。写一个 Vue 工程，�
 
 1. [基础：Vue.js 组件的 3 个 API ：prop 、event 、slot](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%9F%BA%E7%A1%80%EF%BC%9A%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%89%E4%B8%AA%20API%20%EF%BC%9Aprop%20%E3%80%81event%20%E3%80%81slot.md)
 2. [组件的通信 1 ：provide/inject](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%201.md)
+3. [组建的通信 2 ：派发与广播——自行实现 dispatch 和 broadcast 方法](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%202.md)

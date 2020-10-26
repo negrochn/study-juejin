@@ -7,7 +7,22 @@
 <script>
 export default {
   name: 'App',
-  components: {},
+  provide() {
+    return {
+      app: this,
+    }
+  },
+  computed: {
+    fullName() {
+      return this.lastName + this.firstName
+    },
+  },
+  data() {
+    return {
+      firstName: 'chn',
+      lastName: 'negro',
+    }
+  },
 }
 </script>
 

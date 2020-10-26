@@ -24,6 +24,10 @@ export default {
           label: '基础：Vue.js 组件的三个 API ：props 、event 、slot',
           value: 'prop-event-slot',
         },
+        {
+          label: '组件的通信 1 ：provide/inject',
+          value: 'provide-inject',
+        },
       ],
     }
   },

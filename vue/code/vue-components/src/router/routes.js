@@ -13,6 +13,11 @@ const routes = [
     name: 'provide-inject',
     path: '/provide-inject',
     component: () => import('@/pages/provide-inject')
+  },
+  {
+    name: 'dispatch-broadcast',
+    path: 'dispatch-broadcast',
+    component: () => import('@/pages/dispatch-broadcast')
   }
 ]
 

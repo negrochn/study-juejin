@@ -16,8 +16,13 @@ const routes = [
   },
   {
     name: 'dispatch-broadcast',
-    path: 'dispatch-broadcast',
+    path: '/dispatch-broadcast',
     component: () => import('@/pages/dispatch-broadcast')
+  },
+  {
+    name: 'form',
+    path: '/form',
+    component: () => import('@/pages/form')
   }
 ]
 

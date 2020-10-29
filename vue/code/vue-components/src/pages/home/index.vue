@@ -37,6 +37,10 @@ export default {
           label: '实战 1 ：具有数据校验功能的表单组件——Form',
           value: 'form',
         },
+        {
+          label: '实战 2 ：组合多选框组件——CheckboxGroup & Checkbox',
+          value: 'checkbox',
+        },
       ],
     }
   },

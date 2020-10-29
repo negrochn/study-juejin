@@ -78,6 +78,5 @@ export {
   findComponentsUpward,
   findComponentDownload,
   findComponentsDownload,
-  findComponentsDownload,
   findBothersComponents
 }

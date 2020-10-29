@@ -23,6 +23,11 @@ const routes = [
     name: 'form',
     path: '/form',
     component: () => import('@/pages/form')
+  },
+  {
+    name: 'checkbox',
+    path: '/checkbox',
+    component: () => import('@/pages/checkbox')
   }
 ]
 

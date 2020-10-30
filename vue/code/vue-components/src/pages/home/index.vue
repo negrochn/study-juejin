@@ -41,6 +41,10 @@ export default {
           label: '实战 2 ：组合多选框组件——CheckboxGroup & Checkbox',
           value: 'checkbox',
         },
+        {
+          label: '实战 3 ：动态渲染 .vue 文件的组件——Display',
+          value: 'display',
+        },
       ],
     }
   },

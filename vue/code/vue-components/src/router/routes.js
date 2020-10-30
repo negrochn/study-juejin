@@ -28,6 +28,11 @@ const routes = [
     name: 'checkbox',
     path: '/checkbox',
     component: () => import('@/pages/checkbox')
+  },
+  {
+    name: 'display',
+    path: '/display',
+    component: () => import('@/pages/display')
   }
 ]
 

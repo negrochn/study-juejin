@@ -33,6 +33,11 @@ const routes = [
     name: 'display',
     path: '/display',
     component: () => import('@/pages/display')
+  },
+  {
+    name: 'alert',
+    path: '/alert',
+    component: () => import('@/pages/alert')
   }
 ]
 

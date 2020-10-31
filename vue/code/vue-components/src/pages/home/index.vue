@@ -45,6 +45,10 @@ export default {
           label: '实战 3 ：动态渲染 .vue 文件的组件——Display',
           value: 'display',
         },
+        {
+          label: '实战 4 ：全局提示组件——$Alert',
+          value: 'alert',
+        },
       ],
     }
   },

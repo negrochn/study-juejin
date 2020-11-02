@@ -43,6 +43,11 @@ const routes = [
     name: 'functional-render',
     path: '/functional-render',
     component: () => import('@/pages/functional-render')
+  },
+  {
+    name: 'table-render',
+    path: '/table-render',
+    component: () => import('@/pages/table-render')
   }
 ]
 

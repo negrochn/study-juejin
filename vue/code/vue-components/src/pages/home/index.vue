@@ -53,6 +53,10 @@ export default {
           label: '更灵活的组件：Render 函数与 Functional Render',
           value: 'functional-render',
         },
+        {
+          label: '实战 5 ：可用 Render 自定义列的表格组件——Table',
+          value: 'table-render',
+        },
       ],
     }
   },

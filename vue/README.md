@@ -31,4 +31,5 @@ Vue.js 最精髓的，正是它的组件与组件化。写一个 Vue 工程，�
 7. [Vue 的构造器——extend 与手动挂在——$mount](https://github.com/negrochn/study-juejin/blob/master/vue/doc/Vue%20%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8.md)
 8. [实战 3 ：动态渲染 .vue 文件的组件——Display](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%203.md)
 9. [实战 4 ：全局提示组件——$Alert](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%204.md)
+10. [更灵活的组件：Render 函数与 Functional Render](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E6%9B%B4%E7%81%B5%E6%B4%BB%E7%9A%84%E7%BB%84%E4%BB%B6.md)
 

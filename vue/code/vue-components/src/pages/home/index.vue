@@ -49,6 +49,10 @@ export default {
           label: '实战 4 ：全局提示组件——$Alert',
           value: 'alert',
         },
+        {
+          label: '更灵活的组件：Render 函数与 Functional Render',
+          value: 'functional-render',
+        },
       ],
     }
   },

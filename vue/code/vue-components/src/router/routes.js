@@ -38,6 +38,11 @@ const routes = [
     name: 'alert',
     path: '/alert',
     component: () => import('@/pages/alert')
+  },
+  {
+    name: 'functional-render',
+    path: '/functional-render',
+    component: () => import('@/pages/functional-render')
   }
 ]
 

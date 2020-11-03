@@ -48,6 +48,11 @@ const routes = [
     name: 'table-render',
     path: '/table-render',
     component: () => import('@/pages/table-render')
+  },
+  {
+    name: 'table-slot',
+    path: '/table-slot',
+    component: () => import('@/pages/table-slot')
   }
 ]
 

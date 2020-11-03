@@ -57,6 +57,10 @@ export default {
           label: '实战 5 ：可用 Render 自定义列的表格组件——Table',
           value: 'table-render',
         },
+        {
+          label: '实战 6 ：可用 slot-scope 自定义列的表格组件——Table',
+          value: 'table-slot',
+        },
       ],
     }
   },

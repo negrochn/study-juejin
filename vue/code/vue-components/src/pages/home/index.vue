@@ -61,6 +61,10 @@ export default {
           label: '实战 6 ：可用 slot-scope 自定义列的表格组件——Table',
           value: 'table-slot',
         },
+        {
+          label: '递归组件与动态组件',
+          value: 'recursion-dynamic',
+        },
       ],
     }
   },

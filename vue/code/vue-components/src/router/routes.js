@@ -53,6 +53,11 @@ const routes = [
     name: 'table-slot',
     path: '/table-slot',
     component: () => import('@/pages/table-slot')
+  },
+  {
+    name: 'recursion-dynamic',
+    path: '/recursion-dynamic',
+    component: () => import('@/pages/recursion-dynamic')
   }
 ]
 

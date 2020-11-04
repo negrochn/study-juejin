@@ -69,6 +69,10 @@ export default {
           label: '实战 7 ：树形控件——Tree',
           value: 'tree',
         },
+        {
+          label: '扩展：Vue.js 容易忽略的 API 详解',
+          value: 'expand1',
+        },
       ],
     }
   },

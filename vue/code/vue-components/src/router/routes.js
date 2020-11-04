@@ -63,6 +63,11 @@ const routes = [
     name: 'tree',
     path: '/tree',
     component: () => import('@/pages/tree')
+  },
+  {
+    name: 'expand1',
+    path: '/expand1',
+    component: () => import('@/pages/expand1')
   }
 ]
 

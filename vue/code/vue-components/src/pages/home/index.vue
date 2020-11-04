@@ -65,6 +65,10 @@ export default {
           label: '递归组件与动态组件',
           value: 'recursion-dynamic',
         },
+        {
+          label: '实战 7 ：树形控件——Tree',
+          value: 'tree',
+        },
       ],
     }
   },

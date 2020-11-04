@@ -58,6 +58,11 @@ const routes = [
     name: 'recursion-dynamic',
     path: '/recursion-dynamic',
     component: () => import('@/pages/recursion-dynamic')
+  },
+  {
+    name: 'tree',
+    path: '/tree',
+    component: () => import('@/pages/tree')
   }
 ]
 

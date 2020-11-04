@@ -35,4 +35,5 @@ Vue.js 最精髓的，正是它的组件与组件化。写一个 Vue 工程，�
 11. [实战 5 ：可用 Render 自定义列的表格组件——Table](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%205.md)
 12. [实战 6 ：可用 slot-scope 自定义列的表格组件——Table](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%206.md)
 13. [递归组件与动态组件](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E9%80%92%E5%BD%92%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6.md)
+14. [实战 7 ：树形控件——Tree](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%207.md)
 

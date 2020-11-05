@@ -37,4 +37,5 @@ Vue.js 最精髓的，正是它的组件与组件化。写一个 Vue 工程，�
 13. [递归组件与动态组件](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E9%80%92%E5%BD%92%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6.md)
 14. [实战 7 ：树形控件——Tree](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%207.md)
 15. [扩展：Vue.js 容易忽略的 API 详解](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E6%89%A9%E5%B1%95%201.md)
+16. [扩展：Vue.js 面试、常见问题答疑](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E6%89%A9%E5%B1%95%202.md)
 

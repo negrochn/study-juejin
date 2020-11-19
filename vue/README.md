@@ -1,41 +1,170 @@
-# Vue.js 组件精讲
+# 《Vue.js 组件精讲》学习总结
 
-Vue.js 最精髓的，正是它的组件与组件化。写一个 Vue 工程，也就是在写一个个的组件。
+## 组件的分类
 
-
-
-**组件的分类**
-
-1. 页面组件
-
-   作为路由的渲染，不会被复用，没有 props 和自定义事件。
-
-2. 基础组件
-
-   具有高度抽象的 API ，会被大量使用，不包含业务，例如 iView 。
-
-3. 业务组件
-
-   寄托于项目，被多个页面复用，可以使用 Vuex 、axios 、ECharts 等。
+- 页面组件
+- 基础组件
+- 业务组件
 
 
 
-**小册内容**
+### 页面组件
 
-1. [基础：Vue.js 组件的 3 个 API ：prop 、event 、slot](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%9F%BA%E7%A1%80.md)
-2. [组件的通信 1 ：provide/inject](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%201.md)
-3. [组建的通信 2 ：派发与广播——自行实现 dispatch 和 broadcast 方法](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%202.md)
-4. [实战 1 ：具有数据校验功能的表单组件——Form](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%201.md)
-5. [组件的通信 3 ：找到任意组件实例——findComponents 系列方法](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1%203.md)
-6. [实战 2 ：组合多选框组件——CheckboxGroup & Checkbox](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%202.md)
-7. [Vue 的构造器——extend 与手动挂在——$mount](https://github.com/negrochn/study-juejin/blob/master/vue/doc/Vue%20%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8.md)
-8. [实战 3 ：动态渲染 .vue 文件的组件——Display](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%203.md)
-9. [实战 4 ：全局提示组件——$Alert](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%204.md)
-10. [更灵活的组件：Render 函数与 Functional Render](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E6%9B%B4%E7%81%B5%E6%B4%BB%E7%9A%84%E7%BB%84%E4%BB%B6.md)
-11. [实战 5 ：可用 Render 自定义列的表格组件——Table](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%205.md)
-12. [实战 6 ：可用 slot-scope 自定义列的表格组件——Table](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%206.md)
-13. [递归组件与动态组件](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E9%80%92%E5%BD%92%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6.md)
-14. [实战 7 ：树形控件——Tree](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E5%AE%9E%E6%88%98%207.md)
-15. [扩展：Vue.js 容易忽略的 API 详解](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E6%89%A9%E5%B1%95%201.md)
-16. [扩展：Vue.js 面试、常见问题答疑](https://github.com/negrochn/study-juejin/blob/master/vue/doc/%E6%89%A9%E5%B1%95%202.md)
+作为路由的渲染，不会被复用，没有 props 和自定义事件。
 
+### 基础组件
+
+高度抽象的 API ，被大量使用，不包含业务，例如 iView 。
+
+### 业务组件
+
+寄托于项目，被多个页面复用，可以使用 Vuex 、axios 、ECharts 等。
+
+
+
+## 组件的三个 API
+
+- prop
+- slot
+- event
+
+
+
+### prop
+
+定义可配置的属性，推荐对象形式（type 、default 、validator）。
+
+单向数据流。
+
+`inheritAttrs: false` 不会影响 class 和 style 。
+
+
+
+### slot
+
+分发组件内容，分为：
+
+- 默认插槽
+
+- 具名插槽
+
+  多个插槽时使用，如子组件 `<slot name="xxx">` ，父组件 `<template v-slot:xxx>` 。
+
+- 作用域插槽
+
+  插槽内容能够访问子组件数据时使用，如子组件 `<slot :slotData="user">` ，`<template v-slot="slotProps">{{ slotProps.slotData.name }}</template>` 。
+
+
+
+### event
+
+通过 `$emit` 触发自定义事件。
+
+`.native` 区分原生事件和自定义事件。
+
+
+
+## 组件的通信
+
+- ref
+- \$parent/\$children
+- provide/inject
+- dispatch/broadcast
+
+
+
+### ref
+
+给元素或组件注册引用的信息。
+
+
+
+### \$parent/\$children
+
+基于当前上下文访问父组件或全部子组件。
+
+
+
+ref 和 \$parent/\$children 的问题是，无法在跨级或兄弟间通信。
+
+
+
+### provide/inject
+
+祖先组件使用 provide 向下提供数据，子孙组件通过 inject 注入。
+
+
+
+用于子组件获取父组件（包括跨级）的状态，建立一种主动提供与依赖注入的关系。
+
+provide 和 inject 绑定**不是可响应**的，除非是对象。
+
+
+
+**替代 Vuex**
+
+把整个 app.vue 实例通过 provide 对外提供，任何组件只要通过 inject 注入 app ，就可以通过 `this.app.xxx` 访问 app.vue 的 data 、computed 、methods 等内容。
+
+
+
+**使用场景**
+
+具有联动关系的组件，如具有数据校验功能的 Form 。
+
+
+
+provide/inject 的问题
+
+1. 父组件向子组件（支持跨级）传递数据
+2. 子组件向父组件（支持跨级）传递数据
+
+
+
+### dispatch/broadcast
+
+**\$on 与 \$emit**
+
+组件使用 \$emit 触发自定义事件，并用 \$on 监听。
+
+
+
+**已废弃的 \$dispatch 和 \$broadcast**
+
+\$dispatch 向上级派发事件且上级用 \$on 监听，\$broadcast 向下级广播事件且下级用 \$on 监听。
+
+就近原则，第一次接收到后停止冒泡，除非返回 true 。
+
+
+
+**自行实现 dispatch 和 broadcast 方法**
+
+*功能*
+
+- 子组件调用 dispatch ，向上级指定的组件实例（最近的）触发自定义事件并传递数据，且该上级组件已通过 \$on 监听
+- 父组件调用 broadcast ，向下级指定的组件实例（最近的）触发自定义事件并传递数据，且下级组件已通过 \$on 监听
+
+
+
+*关键点*
+
+如何正确地向上或向下找到对应的组件实例，并在它上面触发方法。
+
+
+
+*惯用伎俩*
+
+通过遍历来匹配组件的 name 选项。
+
+
+
+*原理*
+
+向上或向下遍历，根据 name 找到组件实例，调用 \$emit 触发自定义事件，并通过 \$on 监听。
+
+
+
+*与 Vue.js 1.x 的不同点*
+
+- 需要额外传入组件的 name 作为第一个参数
+- 无冒泡机制
+- 第三个参数传递的数据，只能是一个（较多时可以传入一个对象）

@@ -18,9 +18,9 @@ export default {
 
       // 不断向上遍历更新当前组件的父组件实例，
       // 直到匹配到定义的 componentName 与某个上级组件的 name 选项一致时，结束循环
-      while(parent && (!name || name !== componentName)) {
+      while (parent && (!name || name !== componentName)) {
         parent = parent.$parent
-        
+
         if (parent) {
           name = parent.$options.name
         }

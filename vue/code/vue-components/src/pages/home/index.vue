@@ -22,7 +22,7 @@ export default {
       list: [
         {
           label: '具有数据校验功能的表单组件——Form',
-          value: '',
+          value: 'form',
         },
       ],
     }

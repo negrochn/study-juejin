@@ -70,6 +70,7 @@
 - \$parent/\$children
 - provide/inject
 - dispatch/broadcast
+- findComponents 系列方法
 
 
 
@@ -163,8 +164,170 @@ provide/inject 的问题
 
 
 
+*代码*
+
+```js
+// src/mixins/emitter.js
+
+function broadcast(componentName, eventName, params) {
+  this.$children.forEach(child => {
+    const name = child.$options.name
+
+    if (name === componentName) {
+      child.$emit.apply(child, [eventName].concat(params))
+    } else {
+      broadcast.apply(child, [componentName, eventName].concat([params]))
+    }
+  })
+}
+
+export default {
+  methods: {
+    dispatch(componentName, eventName, params) {
+      let parent = this.$parent || this.$root
+      let name = parent.$options.name
+
+      // 不断向上遍历更新当前组件的父组件实例，
+      // 直到匹配到定义的 componentName 与某个上级组件的 name 选项一致时，结束循环
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent
+
+        if (parent) {
+          name = parent.$options.name
+        }
+      }
+      // 在找到的组件实例上，调用 $emit 触发自定义事件 eventName 并传递参数 params
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params))
+      }
+    },
+    broadcast(componentName, eventName, params) {
+      broadcast.call(this, componentName, eventName, params)
+    }
+  }
+}
+```
+
+
+
+
+
 *与 Vue.js 1.x 的不同点*
 
 - 需要额外传入组件的 name 作为第一个参数
 - 无冒泡机制
 - 第三个参数传递的数据，只能是一个（较多时可以传入一个对象）
+
+
+
+### findComponents 系列方法
+
+以工具函数方式使用，组件通信的终极方案。
+
+
+
+**使用场景**
+
+- 由一个组件，向上找到最近的指定组件
+- 由一个组件，向上找到所有的指定组件
+- 由一个组件，向下找到最近的指定组件
+- 由一个组件，向下找到所有的指定组件
+- 由一个组件，找到指定组件的兄弟组件
+
+
+
+**原理**
+
+通过递归、遍历，找到指定组件的 name 选项匹配的组件实例并返回。
+
+
+
+**代码**
+
+```js
+// src/utils/assist.js
+
+// 由一个组件，向上找到最近的指定组件
+function findComponentUpward(context, componentName) {
+  let parent = context.$parent
+  let name = parent.$options.name
+
+  while (parent && (!name || [componentName].indexOf(name) < 0)) {
+    parent = parent.$parent
+
+    if (parent) {
+      name = parent.$options.name
+    }
+  }
+
+  return parent
+}
+
+// 由一个组件，向上找到所有的指定组件
+function findComponentsUpward(context, componentName) {
+  let parents = []
+  let parent = context.$parent
+
+  if (parent) {
+    if (parent.$options.name === componentName) {
+      parents.push(parent)
+    }
+    return parents.concat(findComponentsUpward(parent, componentName))
+  } else {
+    return []
+  }
+}
+
+// 由一个组件，向下找到最近的指定组件
+function findComponentDownload(context, componentName) {
+  let children = context.$children
+  let child = null
+
+  if (children.length) {
+    for (const ch of children) {
+      if (ch.$options.name === componentName) {
+        child = ch
+        break
+      } else {
+        child = findComponentDownload(ch, componentName)
+        if (child) {
+          break
+        }
+      }
+    }
+  }
+  return child
+}
+
+// 由一个组件，向下找到所有的指定组件
+function findComponentsDownload(context, componentName) {
+  return context.$children.reduce((components, child) => {
+    if (child.$options.name === componentName) {
+      components.push(child)
+    }
+    const foundChildren = findComponentsDownload(child, componentName)
+    return components.concat(foundChildren)
+  }, [])
+}
+
+// 由一个组件，找到指定组件的兄弟组件
+function findBrotherComponents(context, componentName, exceptMe = true) {
+  let brothers = context.$parent.$children.filter(brother => {
+    return brother.$options.name === componentName
+  })
+  let index = brothers.findIndex(brother => brother._uid === context._uid)
+  if (exceptMe) {
+    brothers.splice(index, 1)
+  }
+  return brothers
+}
+
+export {
+  findComponentUpward,
+  findComponentsUpward,
+  findComponentDownload,
+  findComponentsDownload,
+  findBrotherComponents
+}
+```
+
